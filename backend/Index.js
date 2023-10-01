@@ -110,19 +110,19 @@ dbclient.connect((err)=>{
           })})
 
 
-   app.get("/stations", (req, res) => {
-    const sql = "SELECT * FROM Station "
-    db2.query(sql,(err,data_)=>{
-      if (err){
-        return res.json(err);
-      } 
-      if (data_.length >0 ) {
+  //  app.get("/stations", (req, res) => {
+  //   const sql = "SELECT * FROM Station "
+  //   db2.query(sql,(err,data_)=>{
+  //     if (err){
+  //       return res.json(err);
+  //     } 
+  //     if (data_.length >0 ) {
 
-        return res.json(data_);
-      }else{
-                return res.json("Failed");
-            }
-          })})
+  //       return res.json(data_);
+  //     }else{
+  //               return res.json("Failed");
+  //           }
+  //         })})
 
 
 

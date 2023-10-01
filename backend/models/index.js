@@ -16,7 +16,7 @@ Cuvet.hasMany(Mesur,{
   })
 
 Mesur.belongsTo(Cuvet,{
-      onDelete:"CASCADE"
+      onDelete:"CASCADE", foreignKey: 'CuveCuveId' 
     })
 
   

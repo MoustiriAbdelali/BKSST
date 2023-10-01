@@ -6,10 +6,10 @@ module.exports = (sequelize, datatype) => {
       type: datatype.STRING(19),
     },
     Level: {
-      type: datatype.TINYINT,
+      type: datatype.INTEGER,
     },
-    Level: {
-      type: datatype.TINYINT,
+    Qte: {
+      type: datatype.INTEGER,
     },
     AlarmeLevel: {
       type: datatype.BOOLEAN,
@@ -20,13 +20,25 @@ module.exports = (sequelize, datatype) => {
     Volt: {
       type: datatype.FLOAT,
     },
+   
     Rsrp: {
+    
       type: datatype.FLOAT(9),
+   
     },
-  },
-  {
-    tableName: 'Mesur'
-  }
-  )
-  return mesur
-}
+ } ,
+ {
+  tableName: 'Mesur'
+,
+// indexes: [
+//   {
+//     using: 'BTREE',
+//     fields: ['Rsrp','Volt']
+//   }
+// ]
+});
+
+return mesur;
+};
+  
+
