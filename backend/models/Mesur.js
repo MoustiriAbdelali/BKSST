@@ -5,8 +5,23 @@ module.exports = (sequelize, datatype) => {
     date: {
       type: datatype.STRING(19),
     },
-    qte: {
-      type: datatype.MEDIUMINT(9),
+    Level: {
+      type: datatype.TINYINT,
+    },
+    Level: {
+      type: datatype.TINYINT,
+    },
+    AlarmeLevel: {
+      type: datatype.BOOLEAN,
+    },
+    AlarmeBattery: {
+      type: datatype.BOOLEAN,
+    },
+    Volt: {
+      type: datatype.FLOAT,
+    },
+    Rsrp: {
+      type: datatype.FLOAT(9),
     },
   },
   {
