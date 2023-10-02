@@ -9,6 +9,9 @@ module.exports = (sequelize, datatype) => {
     type_carburant: {
       type: datatype.STRING(7),
     },
+    Libelle: {
+      type: datatype.STRING(30),
+    },
     volume_cuve: {
       type: datatype.MEDIUMINT(9),
     },

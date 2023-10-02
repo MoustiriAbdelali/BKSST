@@ -8,36 +8,51 @@ const Cuve = model.Cuvet
 const sequelize =require("sequelize")
 
 
-router.route('/Cuves').get(async (req, res) => {
-    try {
-      // Outer query to find the maximum 'id' value from Mesur
-      const maxId = await Mesur.max('id');
+// router.route('/Cuves').get(async (req, res) => {
+//     try {
+//  const maxId = awaitMesur.findAll({
+//         attributes: [
+           
+//             [sequelize.fn('max', sequelize.col('id')), 'Maxid'],
+//           ],
+//           include: [
+//             {
+//               model: Cuve,
+//               attributes: [],
+//               where: {
+//                 IDStation:  
+//               },
+//             },     
+//           ],
+//            group: ['Cuve.cuve_id'],
+//            raw: true,
+       
+//     })
+//       const result = await Mesur.findAll({
+//         where: {
+//           id: maxId,
+//         },
+//         include: [
+//           {
+//             model: Cuve,
+//             attributes: ['type_carburant'],
+//             // where: {
+//             //   cuve_id: 1,
+//             // },
+//           },
+//         ],
+//         group: ['Cuve.cuve_id'],
+//         raw: true,
+//       });
   
-      // Inner query to retrieve additional information based on the maximum 'id'
+//       res.json(result); // Send the result as JSON response
+//     } catch (error) {
+//       console.error(error);
+//       res.status(500).json({ error: 'Internal Server Error' });
+//     }
+//   });
 
-      //clearconsole.log(maxId)
-      const result = await Mesur.findOne({
-        where: {
-          id: maxId,
-        },
-        include: [
-          {
-            model: Cuve,
-            attributes: ['type_carburant'],
-            where: {
-              cuve_id: 1,
-            },
-          },
-        ],
-        raw: true,
-      });
-  
-      res.json(result); // Send the result as JSON response
-    } catch (error) {
-      console.error(error);
-      res.status(500).json({ error: 'Internal Server Error' });
-    }
-  });
+
 // router
 // .route('/Cuves')
 // .get((req,res) => {
@@ -45,20 +60,18 @@ router.route('/Cuves').get(async (req, res) => {
 //      Mesur.findAll({
 //         attributes: [
            
-//             [sequelize.fn('max', sequelize.col('id')), 'Maxid'],
-//             //[sequelize.col('Cuve.type_carburant'), 'type_carburant'],
+//             [sequelize.fn('max', sequelize.col('id')), 'Maxid'],sequelize.col('Level'),'AlarmeBattery','Volt',"Rsrp","Qte"
 //           ],
 //           include: [
 //             {
 //               model: Cuve,
-//            //   attributes: [],
+//               attributes: ['cuve_id','Libelle','type_carburant','volume_cuve'],
 //               where: {
-//                 cuve_id: 1, // Adjust the condition as needed
+//                 IDStation: req.body.IDStation
 //               },
-//             },
-       
+//             },     
 //           ],
-//            //group: ['Cuve.cuve_id'],
+//            group: ['Cuve.cuve_id'],
 //            raw: true,
        
 //     }
@@ -70,7 +83,8 @@ router.route('/Cuves').get(async (req, res) => {
 //     .catch((err)=>res.status(400).send(err))
 //   })
 
- 
+
+
 // router
 // .route('/Cuves')
 // .get((req,res) => {

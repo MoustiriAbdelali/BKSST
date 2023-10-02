@@ -6,7 +6,8 @@ const app =express()
 const port =process.env.POTT || 5000
 const db =require('./config/database');
 const modelexpor =require('./models/index')
-
+const cors=require('cors')
+app.use(cors())
 app.use( bodyParser.urlencoded({extended:true}))
 app.use( bodyParser.json())
 
